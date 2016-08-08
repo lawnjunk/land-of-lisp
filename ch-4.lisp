@@ -44,4 +44,46 @@
 (nda-krew? 'blorg)
 
 
+; logical and and or
+(and (oddp 5) (oddp 7) (oddp 9))
+
+(and (oddp 5) (oddp 7) (oddp 10))
+
+(or (oddp 5) (oddp 7) (oddp 6))
+
+(or (oddp 4) (oddp 8) (oddp 6))
+
+
+(defvar *its-even* nil)
+(or (oddp 4) (setf *its-even* t))
+(or (oddp 4) (progn (print "false but keep gogin") nil )(setf *its-even* t))
+
+(if (and t t t) 'wat)
+
+
+; member is used to check if an item is in a list
+; returns the tail of the list
+(member 'slug '(alex slug neo))
+; -> '(slug neo)
+
+
+; wont work no more
+;(setf (car (cadr (cadddr *wat*))) '(a b c))
+
+
+; use eq to comare symbols
+(defparameter *boog* 'slime)
+(eq *boog* 'slime)
+(eq 'wat 'wat)
+
+; use equal to compare data
+(equal "hello" "hello")
+(equal 0 0)
+(equal nil nil)
+(equal '(1 2 3) '(1 2 3))
+(equal '(1 2 3) (cons 1 (cons 2 (cons 3 nil))))
+
+;equalp compare case insinsitive strings and int to float
+(equalp 0 0.0)
+(equalp "bob" "BOB")
 
